@@ -167,8 +167,8 @@ app.MapGet("/api/classify-number", async (string? number, IHttpClientFactory htt
         is_prime = IsPrime(num.Value),
         is_perfect = IsPerfect(num.Value),
         properties= properties,
-        digit_sum= SumOfNumberDigits(num.Value)
-
+        digit_sum= SumOfNumberDigits(num.Value),
+        fun_fact= funFact
     };
 
     return Results.Ok(results);
