@@ -1,16 +1,8 @@
 
-using System.Runtime.InteropServices.JavaScript;
-using System.Text.Json;
-using Microsoft.AspNetCore.Http.Json;
-using Microsoft.AspNetCore.Routing.Template;
-
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
 builder.Services.AddHttpClient();
-
-builder.Services.Configure<JsonOptions>(options =>
-    options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower);
 
 var app = builder.Build();
 
