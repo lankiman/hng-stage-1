@@ -91,7 +91,8 @@ Status Code 400
 ```
 
 To get the response, simply send a GET request to the root endpoint (`/classify-number?number=371`).
-[https://hng-task-0-production-8c99.up.railway.app](https://hng-task-0-production-8c99.up.railway.app)
+
+[Stage-1 Task](https://hng-stage-1-lankiman.up.railway.app/api/classify-number?number=28)
 
 ## Backlink
 
@@ -119,7 +120,7 @@ This repository contains the code for the Stage 0 Backend task of the HNG12 prog
 
 This API is deployed to Railway using a docker image and is accessible at the following publicly available endpoint:
 
-[https://hng-task-0-production-8c99.up.railway.app](https://hng-task-0-production-8c99.up.railway.app)
+[Stage-1 Task](https://hng-stage-1-lankiman.up.railway.app/api/classify-number?number=28)
 
 You can access the live version of the API by visiting the provided URL.
 
