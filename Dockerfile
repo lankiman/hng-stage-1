@@ -7,17 +7,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["hng-task-o.csproj", "./"]
-RUN dotnet restore "hng-task-o.csproj"
+COPY ["hng-stage-1.csproj", "./"]
+RUN dotnet restore "hng-stage-1.csproj"
 COPY . .
 WORKDIR "/src/"
-RUN dotnet build "hng-task-o.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "hng-stage-1.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "hng-task-o.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "hng-stage-1.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "hng-task-o.dll"]
+ENTRYPOINT ["dotnet", "hng-stage-1.dll"]
